@@ -1,0 +1,472 @@
+Set-Content -Path "c:\Users\Gebruiker\Documents\Uzbek Restaurant\index.html" -Value @'
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Uzbek Restaurant Rotterdam</title>
+  <meta name="description" content="Authentiek Oezbeeks restaurant in Rotterdam. Reserveer via WhatsApp, bekijk menu, openingstijden en locatie." />
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #101215;
+      --surface: #11161f;
+      --surface-alt: #1c2330;
+      --text: #f6f7fb;
+      --muted: #b8c0d1;
+      --accent: #f05d23;
+      --accent-soft: #ff7d45;
+      --border: rgba(255,255,255,0.08);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      scroll-behavior: smooth;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at top, rgba(240,93,35,.12), transparent 40%), #090b10;
+      color: var(--text);
+      line-height: 1.6;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    header { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(14px); background: rgba(6, 12, 24, 0.88); border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .nav-inner { max-width: 1180px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.9rem 1.25rem; }
+    .brand { font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.95rem; color: var(--accent); }
+    nav { display: flex; gap: 1rem; flex-wrap: wrap; }
+    nav a { color: var(--muted); font-size: 0.95rem; padding: 0.5rem 0.4rem; transition: color .2s ease; }
+    nav a:hover { color: var(--text); }
+    .lang-switch { display: inline-flex; gap: 0.5rem; }
+    .lang-switch button { border: 1px solid rgba(255,255,255,.14); background: transparent; color: var(--muted); padding: 0.55rem 0.85rem; border-radius: 999px; cursor: pointer; font-size: 0.85rem; }
+    .lang-switch button.active, .lang-switch button:hover { border-color: var(--accent); color: var(--text); }
+    .hero {
+      min-height: calc(100vh - 72px);
+      display: grid;
+      place-items: center;
+      padding: 2rem 1rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 20% 20%, rgba(240,93,35,0.18), transparent 25%), linear-gradient(180deg, rgba(7,10,19,.9) 0%, rgba(7,10,19,.96) 100%);
+      pointer-events: none;
+    }
+    .hero-grid { position: relative; z-index: 1; width: min(1180px, 100%); display: grid; gap: 1.5rem; grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr); align-items: center; }
+    .hero-copy { max-width: 640px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); font-size: 0.82rem; margin-bottom: 1rem; }
+    .eyebrow::before { content: "●"; font-size: 0.8rem; color: var(--accent-soft); }
+    h1 { margin: 0; font-size: clamp(2.4rem, 4vw, 4.2rem); line-height: 0.95; letter-spacing: -0.04em; }
+    p.lead { margin: 1.3rem 0; max-width: 38rem; color: #d7dbe7; font-size: 1.05rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.6rem; }
+    .button, .button-secondary { display: inline-flex; align-items: center; justify-content: center; border: none; border-radius: 999px; padding: 0.95rem 1.4rem; font-weight: 700; cursor: pointer; transition: transform .2s ease, background .2s ease; }
+    .button { background: linear-gradient(135deg, var(--accent), var(--accent-soft)); color: #fff; }
+    .button-secondary { background: rgba(255,255,255,.08); color: var(--text); }
+    .button:hover, .button-secondary:hover { transform: translateY(-1px); }
+    .hero-image { min-height: 460px; border-radius: 32px; overflow: hidden; position: relative; background-image: linear-gradient(145deg, rgba(45,58,83,.35) 0%, rgba(17,24,38,.65) 45%, rgba(17,24,38,.85) 100%), url('https://images.unsplash.com/photo-1498654896293-37aacf113fd9?auto=format&fit=crop&w=1200&q=80'); background-size: cover; background-position: center; box-shadow: 0 32px 90px rgba(0,0,0,.35); }
+    .hero-image::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(15,20,32,.03), rgba(6,9,18,.82)); }
+    .info-grid { display: grid; gap: 1rem; margin: 2rem auto; max-width: 1180px; padding: 0 1rem; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .info-card { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08); border-radius: 24px; padding: 1.4rem; min-height: 170px; }
+    .info-card h3 { margin: 0 0 0.85rem; font-size: 1.05rem; }
+    .info-card p { margin: 0; color: var(--muted); font-size: 0.97rem; }
+    .section-title { display: inline-flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem; font-size: 1rem; letter-spacing: 0.08em; color: var(--accent); text-transform: uppercase; }
+    .section-title span { display: block; }
+    section { padding: 3.5rem 1rem; }
+    .section-inner { max-width: 1180px; margin: 0 auto; }
+    .menu-grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .dish-card { background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.08); border-radius: 28px; overflow: hidden; }
+    .dish-card .image { height: 210px; background: linear-gradient(135deg, #33556d, #1d293f); display: grid; place-items: center; color: rgba(255,255,255,.68); font-size: 0.95rem; text-align: center; padding: 1.5rem; }
+    .dish-content { padding: 1.35rem 1.35rem 1.5rem; }
+    .dish-title { margin: 0 0 0.4rem; font-size: 1.08rem; }
+    .dish-type { display: inline-flex; gap: 0.35rem; flex-wrap: wrap; color: var(--accent); font-size: 0.78rem; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 0.85rem; }
+    .dish-desc { margin: 0; color: var(--muted); font-size: 0.95rem; }
+    .dish-tag { margin-top: 1rem; display: inline-flex; gap: 0.5rem; flex-wrap: wrap; color: #9bb0d0; font-size: 0.77rem; }
+    .flex-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .highlight { position: relative; padding: 1.35rem; border-radius: 24px; background: rgba(17,24,39,.95); border: 1px solid rgba(255,255,255,.08); }
+    .highlight h2 { margin-top: 0; }
+    .reserve-card { display: grid; gap: 1.1rem; grid-template-columns: minmax(0, 1fr); }
+    .reserve-links { display: grid; gap: 0.9rem; }
+    .reserve-links a { display: inline-flex; align-items: center; justify-content: space-between; gap: 0.75rem; padding: 1rem 1.1rem; border: 1px solid rgba(255,255,255,.12); border-radius: 18px; background: rgba(255,255,255,.02); color: var(--text); }
+    .review-grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    .review-card { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08); border-radius: 24px; padding: 1.35rem; }
+    .stars { display: flex; gap: 0.25rem; color: #f9c54b; margin-bottom: 0.9rem; }
+    .map-wrapper { border-radius: 28px; overflow: hidden; border: 1px solid rgba(255,255,255,.08); min-height: 320px; }
+    iframe { width: 100%; height: 100%; border: 0; }
+    .contact-grid { display: grid; gap: 1.1rem; grid-template-columns: minmax(0, 1fr) 280px; }
+    .contact-card { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08); border-radius: 28px; padding: 1.35rem; }
+    .contact-card h3 { margin-top: 0; }
+    .contact-card a { color: var(--accent); }
+    .badge { display: inline-flex; gap: 0.35rem; align-items: center; padding: 0.45rem 0.75rem; border-radius: 999px; border: 1px solid rgba(255,255,255,.12); font-size: 0.8rem; color: var(--muted); }
+    .page-footer { padding: 2rem 1rem; text-align: center; color: rgba(255,255,255,.55); font-size: 0.92rem; }
+    .sticky-whatsapp {
+      position: fixed;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 50;
+    }
+    .sticky-whatsapp a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: #25d366;
+      color: #fff;
+      border-radius: 999px;
+      padding: 0.75rem 0.95rem;
+      box-shadow: 0 20px 50px rgba(37,211,102,.25);
+      font-weight: 700;
+      min-width: 220px;
+      justify-content: center;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .sticky-whatsapp a:hover { transform: translateY(-1px); box-shadow: 0 26px 58px rgba(37,211,102,.28); }
+    .sticky-whatsapp .whatsapp-circle {
+      width: 46px;
+      height: 46px;
+      min-width: 46px;
+      border-radius: 50%;
+      background: #fff;
+      color: #25d366;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,.06);
+    }
+    .sticky-whatsapp .whatsapp-label {
+      white-space: nowrap;
+      font-size: 0.95rem;
+      letter-spacing: 0.01em;
+    }
+    @media (max-width: 680px) {
+      .nav-inner { flex-direction: column; align-items: stretch; }
+      nav { justify-content: center; }
+      .hero { padding-top: 1.2rem; }
+      .hero-actions { flex-direction: column; }
+      .hero-copy { text-align: center; }
+      .button, .button-secondary { width: 100%; }
+      .section-inset { padding: 1.5rem; }
+      .menu-item strong { flex-direction: column; align-items: flex-start; }
+      .menu-item span { margin-left: 0; }
+      .sticky-whatsapp { right: 0.75rem; bottom: 0.75rem; }
+      .sticky-whatsapp a { min-width: 0; width: auto; padding: 0.75rem 0.9rem; }
+    }
+    .legal-notice { color: rgba(255,255,255,.4); font-size: 0.85rem; margin-top: 0.4rem; }
+    .menu-section .menu-columns { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); }
+    .menu-column { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08); border-radius: 26px; padding: 1.5rem; }
+    .menu-column h3 { margin-top: 0; }
+    .menu-item { display: grid; gap: 0.35rem; margin-bottom: 1.1rem; }
+    .menu-item strong { display: inline-flex; justify-content: space-between; gap: 1rem; }
+    .menu-item span { color: var(--muted); font-size: 0.95rem; }
+    .menu-item:last-child { margin-bottom: 0; }
+    .grid-2 { display: grid; gap: 1.25rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .label-pill { padding: 0.35rem 0.7rem; border-radius: 999px; border: 1px solid rgba(255,255,255,.12); font-size: 0.82rem; color: #c9d5ef; }
+    .highlight-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.75rem; }
+    .highlight-list li { display: flex; gap: 0.65rem; align-items: flex-start; color: var(--muted); }
+    .highlight-list li::before { content: "•"; color: var(--accent); margin-top: 0.15rem; }
+    .language-note { color: var(--muted); font-size: 0.9rem; }
+    .section-inset { background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.06); border-radius: 32px; padding: 2rem; }
+    .split-text { display: grid; gap: 0.8rem; }
+    .split-text p { margin: 0; }
+    .cta-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .cta-row a { flex: 1 1 200px; }
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .info-grid, .contact-grid, .grid-2, .section-inner { grid-template-columns: 1fr; }
+      .sticky-whatsapp { right: 0.75rem; bottom: 0.75rem; }
+      .sticky-whatsapp a { min-width: 0; width: auto; padding: 0.85rem 1rem; }
+      .hero-image { min-height: 320px; }
+    }
+    @media (max-width: 680px) {
+      .nav-inner { flex-direction: column; align-items: stretch; }
+      nav { justify-content: center; }
+      .hero { padding-top: 1.2rem; }
+      .hero-actions { flex-direction: column; }
+      .hero-copy { text-align: center; }
+      .button, .button-secondary { width: 100%; }
+      .section-inset { padding: 1.5rem; }
+      .menu-item strong { flex-direction: column; align-items: flex-start; }
+      .menu-item span { margin-left: 0; }
+    }
+    body[data-lang='nl'] .lang-en, body[data-lang='nl'] .lang-uz { display: none; }
+    body[data-lang='en'] .lang-nl, body[data-lang='en'] .lang-uz { display: none; }
+    body[data-lang='uz'] .lang-nl, body[data-lang='uz'] .lang-en { display: none; }
+    .lang-nl, .lang-en, .lang-uz { display: block; }
+  </style>
+</head>
+<body data-lang="nl">
+  <header>
+    <div class="nav-inner">
+      <a class="brand" href="#home">Uzbek Restaurant</a>
+      <nav>
+        <a href="#home"><span class="lang-nl">Home</span><span class="lang-en">Home</span><span class="lang-uz">Bosh sahifa</span></a>
+        <a href="#menu"><span class="lang-nl">Menu</span><span class="lang-en">Menu</span><span class="lang-uz">Menyu</span></a>
+        <a href="#reserveer"><span class="lang-nl">Reserveren</span><span class="lang-en">Reserve</span><span class="lang-uz">Bron qilish</span></a>
+        <a href="#about"><span class="lang-nl">Over ons</span><span class="lang-en">About</span><span class="lang-uz">Biz haqimizda</span></a>
+        <a href="#contact"><span class="lang-nl">Contact</span><span class="lang-en">Contact</span><span class="lang-uz">Bog'lanish</span></a>
+      </nav>
+      <div class="lang-switch">
+        <button type="button" class="active" data-lang="nl">NL</button>
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="uz">UZ</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="lang-nl">Authentieke Oezbeekse keuken</span><span class="lang-en">Authentic Uzbek cuisine</span><span class="lang-uz">Haqiqiy O'zbek taomlari</span></div>
+          <h1>
+            <span class="lang-nl">Authentieke Oezbeekse keuken in Rotterdam</span>
+            <span class="lang-en">Authentic Uzbek cuisine in Rotterdam</span>
+            <span class="lang-uz">Rotterdamda haqiqiy O'zbek taomlari</span>
+          </h1>
+          <p class="lead">
+            <span class="lang-nl">Proef plov, mantı, lagman en meer in een warme, huiselijke sfeer. Direct reserveren via WhatsApp of bekijk het digitale menu.</span>
+            <span class="lang-en">Taste plov, manti, lagman and more in a warm, welcoming atmosphere. Book via WhatsApp or check our digital menu.</span>
+            <span class="lang-uz">Issiq, oilaviy muhitda plov, manti, lagmon va boshqalarni tatib ko'ring. WhatsApp orqali bron qiling yoki raqamli menyuni ko'ring.</span>
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#reserveer"><span class="lang-nl">Reserveer nu</span><span class="lang-en">Reserve now</span><span class="lang-uz">Hozir bron qiling</span></a>
+            <a class="button-secondary" href="#menu"><span class="lang-nl">Bekijk menu</span><span class="lang-en">View menu</span><span class="lang-uz">Menyuni ko'rish</span></a>
+          </div>
+          <div class="split-text" style="margin-top:1.75rem;">
+            <p><strong><span class="lang-nl">Adres:</span><span class="lang-en">Address:</span><span class="lang-uz">Manzil:</span></strong> Wolphaertsbocht 138A, 3083 LA Rotterdam</p>
+            <p><strong><span class="lang-nl">Telefoon:</span><span class="lang-en">Phone:</span><span class="lang-uz">Telefon:</span></strong> <a href="tel:+31621586566">0621586566</a></p>
+          </div>
+        </div>
+        <div class="hero-image"></div>
+      </div>
+    </section>
+
+    <section class="section-inner">
+      <div class="info-grid">
+        <article class="info-card">
+          <h3><span class="lang-nl">WhatsApp reserveren</span><span class="lang-en">WhatsApp booking</span><span class="lang-uz">WhatsApp orqali bron</span></h3>
+          <p><span class="lang-nl">Snel en eenvoudig met vooraf ingevulde tekst. Hoge conversie voor reserveringen.</span><span class="lang-en">Fast and easy with prefilled text. High conversion for bookings.</span><span class="lang-uz">Oldindan yozilgan matn bilan tez va oson. Yuqori konversiya.</span></p>
+        </article>
+        <article class="info-card">
+          <h3><span class="lang-nl">Digitaal menu</span><span class="lang-en">Digital menu</span><span class="lang-uz">Raqamli menyu</span></h3>
+          <p><span class="lang-nl">Typische Oezbeekse gerechten met categorieën, allergenen en halal/vegetarisch labels.</span><span class="lang-en">Typical Uzbek dishes with categories, allergens and halal/vegetarian labels.</span><span class="lang-uz">Toifalar, allergenlar va halal/vegetarian belgilar bilan tipik O'zbek taomlari.</span></p>
+        </article>
+        <article class="info-card">
+          <h3><span class="lang-nl">Locatie & openingstijden</span><span class="lang-en">Location & opening</span><span class="lang-uz">Joylashuv va ish vaqti</span></h3>
+          <p><span class="lang-nl">Google Maps integratie, OV-info en parkeertips zodat gasten direct kunnen komen.</span><span class="lang-en">Google Maps integration, transit info and parking tips so guests can arrive directly.</span><span class="lang-uz">Google Maps integratsiyasi, jamoat transporti va parkovka ma'lumotlari.</span></p>
+        </article>
+      </div>
+    </section>
+
+    <section id="menu">
+      <div class="section-inner">
+        <div class="section-title"><span class="lang-nl">Menu</span><span class="lang-en">Menu</span><span class="lang-uz">Menyu</span></div>
+        <div class="highlight">
+          <h2><span class="lang-nl">Typische Oezbeekse gerechten</span><span class="lang-en">Typical Uzbek dishes</span><span class="lang-uz">Tipik O'zbek taomlari</span></h2>
+          <p class="language-note"><span class="lang-nl">Volg het mobiele menu met overzichtelijke categorieën voor voorgerechten, hoofdgerechten, desserts en drankjes.</span><span class="lang-en">Follow the mobile-friendly menu with clear categories for starters, mains, desserts and drinks.</span><span class="lang-uz">Ilovaga mos menyu, taomlar, asosiy taomlar, desertlar va ichimliklar uchun aniq toifalar.</span></p>
+        </div>
+        <div class="menu-section" style="margin-top:1.5rem;">
+          <div class="menu-columns">
+            <div class="menu-column">
+              <h3><span class="lang-nl">Voorgerechten</span><span class="lang-en">Starters</span><span class="lang-uz">Salatlar</span></h3>
+              <div class="menu-item">
+                <strong>Plov Salatasi <span>€7,50</span></strong>
+                <span><span class="lang-nl">Rijstsalade met specerijen en verse groenten.</span><span class="lang-en">Rice salad with spices and fresh vegetables.</span><span class="lang-uz">Turli ziravorlar va yangi sabzavotlar bilan guruch salatasi.</span></span>
+              </div>
+              <div class="menu-item">
+                <strong>Somsa <span>€4,50</span></strong>
+                <span><span class="lang-nl">Gevulde bladerdeegdriehoek met gehakt of groenten.</span><span class="lang-en">Savory pastry triangles with meat or vegetables.</span><span class="lang-uz">Go'shtli yoki sabzavotli xamir qovurmasi.</span></span>
+              </div>
+              <div class="menu-item">
+                <strong>Achik Chuchvara <span>€6,00</span></strong>
+                <span><span class="lang-nl">Kleine ravioli in lichte bouillon met kruiden.</span><span class="lang-en">Small dumplings in a light broth with herbs.</span><span class="lang-uz">Yengil sho'rvada mayda dimlama bilan xamir qovurmasi.</span></span>
+              </div>
+            </div>
+            <div class="menu-column">
+              <h3><span class="lang-nl">Hoofdgerechten</span><span class="lang-en">Mains</span><span class="lang-uz">Asosiy taomlar</span></h3>
+              <div class="menu-item">
+                <strong>Osh/Plov <span>€14,50</span></strong>
+                <span><span class="lang-nl">Authentieke Oezbeekse rijst met lam, wortel en kruiden.</span><span class="lang-en">Authentic Uzbek rice with lamb, carrots and spices.</span><span class="lang-uz">Qo'y go'shti, sabzi va ziravorlar bilan an'anaviy plov.</span></span>
+              </div>
+              <div class="menu-item">
+                <strong>Lagman <span>€13,50</span></strong>
+                <span><span class="lang-nl">Handgemaakte noedels in een rijke groentebouillon.</span><span class="lang-en">Handmade noodles in a rich vegetable broth.</span><span class="lang-uz">Boy sabzavotli sho'rvada qo'lda yasalgan lag'mon.</span></span>
+              </div>
+              <div class="menu-item">
+                <strong>Manti <span>€12,50</span></strong>
+                <span><span class="lang-nl">Gestoomde deegpakketjes met lamsvlees en yoghurt.</span><span class="lang-en">Steamed dumplings with lamb and yogurt.</span><span class="lang-uz">Qo'y go'shti va qaymoq bilan bug'langan manti.</span></span>
+              </div>
+            </div>
+            <div class="menu-column">
+              <h3><span class="lang-nl">Desserts & Drankjes</span><span class="lang-en">Desserts & Drinks</span><span class="lang-uz">Desertlar va ichimliklar</span></h3>
+              <div class="menu-item">
+                <strong>Halva <span>€5,00</span></strong>
+                <span><span class="lang-nl">Traditioneel Oezbeeks dessert met sesam en honing.</span><span class="lang-en">Traditional Uzbek dessert with sesame and honey.</span><span class="lang-uz">Kunjut va asal bilan an'anaviy halva.</span></span>
+              </div>
+              <div class="menu-item">
+                <strong>Choy <span>€2,50</span></strong>
+                <span><span class="lang-nl">Zwarte thee met specerijen, warm geserveerd.</span><span class="lang-en">Black tea with spices, served warm.</span><span class="lang-uz">Ziravorli qora choy, issiq holda xizmat qilinadi.</span></span>
+              </div>
+              <div class="menu-item">
+                <strong>Sharbat <span>€3,50</span></strong>
+                <span><span class="lang-nl">Verfrissende huisgemaakte limonade.</span><span class="lang-en">Refreshing homemade lemonade.</span><span class="lang-uz">Mazali uy qurilishi limonad.</span></span>
+              </div>
+            </div>
+          </div>
+          <p class="language-note" style="margin-top:1rem;"><span class="lang-nl">PDF backup beschikbaar voor snelle downloads.</span><span class="lang-en">PDF backup available for quick downloads.</span><span class="lang-uz">Tez yuklash uchun PDF zaxira mavjud.</span></p>
+          <a class="button" href="#" style="margin-top:1rem; display:inline-flex;">PDF Menu downloaden</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="reserveer" style="background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(16,18,21,.98));">
+      <div class="section-inner">
+        <div class="section-title"><span class="lang-nl">Reserveren</span><span class="lang-en">Reserve</span><span class="lang-uz">Bron qilish</span></div>
+        <div class="reserve-card">
+          <div class="highlight">
+            <h2><span class="lang-nl">Reserveer eenvoudig met WhatsApp</span><span class="lang-en">Book easily with WhatsApp</span><span class="lang-uz">WhatsApp orqali oson bron qiling</span></h2>
+            <p class="language-note"><span class="lang-nl">Klik op de knop rechtsonder voor direct contact met vooraf ingevulde tekst.</span><span class="lang-en">Tap the button at the bottom right for direct contact with prefilled text.</span><span class="lang-uz">O'ng pastdagi tugmani bosing, oldindan yozilgan matn bilan to'g'ridan-to'g'ri bog'laning.</span></p>
+            <ul class="highlight-list">
+              <li><span class="lang-nl">WhatsApp Business beschikbaar voor snelle reserveringen.</span><span class="lang-en">WhatsApp Business available for fast bookings.</span><span class="lang-uz">Tez bron qilish uchun WhatsApp Business mavjud.</span></li>
+              <li><span class="lang-nl">Opties voor TheFork, OpenTable en Formitable links.</span><span class="lang-en">Options for TheFork, OpenTable and Formitable links.</span><span class="lang-uz">TheFork, OpenTable va Formitable havolalari uchun imkoniyatlar.</span></li>
+              <li><span class="lang-nl">Bekijk beschikbaarheid, feesten en speciale avonden.</span><span class="lang-en">See availability, holidays and special evenings.</span><span class="lang-uz">Mavjudlik, bayramlar va maxsus kechalar.</span></li>
+            </ul>
+          </div>
+          <div class="reserve-links">
+            <a href="https://wa.me/31261586566?text=Hallo%2C%20ik%20wil%20graag%20reserveren%20voor%20vanavond." target="_blank" rel="noreferrer">
+              <span><strong><span class="lang-nl">Reserveer via WhatsApp</span><span class="lang-en">Reserve via WhatsApp</span><span class="lang-uz">WhatsApp orqali bron qiling</span></strong></span>
+              <span>+31 6 21586566</span>
+            </a>
+            <a href="#">
+              <span><strong>TheFork</strong></span>
+              <span><span class="lang-nl">Soon beschikbaar</span><span class="lang-en">Coming soon</span><span class="lang-uz">Tez orada</span></span>
+            </a>
+            <a href="#">
+              <span><strong>OpenTable</strong></span>
+              <span><span class="lang-nl">Soon beschikbaar</span><span class="lang-en">Coming soon</span><span class="lang-uz">Tez orada</span></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="section-inner">
+        <div class="section-title"><span class="lang-nl">Over ons</span><span class="lang-en">About us</span><span class="lang-uz">Biz haqimizda</span></div>
+        <div class="grid-2">
+          <div class="highlight">
+            <h2><span class="lang-nl">Een warme plek voor Oezbeekse smaken</span><span class="lang-en">A warm place for Uzbek flavors</span><span class="lang-uz">O'zbek ta'mlari uchun iliq joy</span></h2>
+            <p class="language-note"><span class="lang-nl">We serveren authentieke Oezbeekse gerechten, met speciale aandacht voor verse kruiden en huisgemaakte recepten.</span><span class="lang-en">We serve authentic Uzbek meals, with fresh herbs and homemade recipes.</span><span class="lang-uz">Biz yangi o'tlar va uy sharoitida tayyorlangan retseptlar bilan haqiqiy O'zbek taomlarini taqdim etamiz.</span></p>
+          </div>
+          <div class="highlight">
+            <h3><span class="lang-nl">Speciale avonden</span><span class="lang-en">Special nights</span><span class="lang-uz">Maxsus kechalar</span></h3>
+            <ul class="highlight-list">
+              <li><span class="lang-nl">Tapas night met Oezbeekse mezze.</span><span class="lang-en">Tapas night with Uzbek mezze.</span><span class="lang-uz">O'zbek mezze bilan tapas kechasi.</span></li>
+              <li><span class="lang-nl">Live muziek en gastoptredens.</span><span class="lang-en">Live music and guest performances.</span><span class="lang-uz">Jonli musiqa va mehmon chiqishlari.</span></li>
+              <li><span class="lang-nl">Cadeaubonnen voor speciale gelegenheden.</span><span class="lang-en">Gift vouchers for special occasions.</span><span class="lang-uz">Maxsus tadbirlar uchun sovg'a kuponlari.</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="background: rgba(255,255,255,.02);">
+      <div class="section-inner">
+        <div class="section-title"><span class="lang-nl">Openingstijden</span><span class="lang-en">Opening hours</span><span class="lang-uz">Ish vaqti</span></div>
+        <div class="grid-2">
+          <div class="contact-card">
+            <h3><span class="lang-nl">Reguliere tijden</span><span class="lang-en">Regular hours</span><span class="lang-uz">Oddiy vaqtlar</span></h3>
+            <ul class="highlight-list">
+              <li><strong>Maandag - Vrijdag</strong> <span>17:00 - 22:30</span></li>
+              <li><strong>Zaterdag</strong> <span>16:00 - 23:00</span></li>
+              <li><strong>Zondag</strong> <span>16:00 - 22:00</span></li>
+            </ul>
+            <p class="language-note"><span class="lang-nl">Keuken sluit om 21:45. Afhaal mogelijk tot 21:30.</span><span class="lang-en">Kitchen closes at 21:45. Pickup until 21:30.</span><span class="lang-uz">Oshxona 21:45 da yopiladi. Olib ketish 21:30 gacha.</span></p>
+          </div>
+          <div class="contact-card">
+            <h3><span class="lang-nl">Feestdagen</span><span class="lang-en">Holidays</span><span class="lang-uz">Bayramlar</span></h3>
+            <ul class="highlight-list">
+              <li><span class="lang-nl">1 januari: gesloten</span><span class="lang-en">Jan 1: closed</span><span class="lang-uz">1 yanvar: yopiq</span></li>
+              <li><span class="lang-nl">Koningsdag: gesloten</span><span class="lang-en">King's Day: closed</span><span class="lang-uz">Qirollik kuni: yopiq</span></li>
+              <li><span class="lang-nl">Herfstvakantie: beperkte opening</span><span class="lang-en">Autumn break: limited hours</span><span class="lang-uz">Kuz ta'tili: cheklangan vaqtlar</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-inner">
+        <div class="section-title"><span class="lang-nl">Locatie</span><span class="lang-en">Location</span><span class="lang-uz">Joylashuv</span></div>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3><span class="lang-nl">Google Maps</span><span class="lang-en">Google Maps</span><span class="lang-uz">Google Xaritalar</span></h3>
+            <div class="map-wrapper">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2467.589260532823!2d4.509363315707217!3d51.94587777970584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c431d0f9d2bdb7%3A0x60bad7dc7dd32c6f!2sWolphaertsbocht%20138A%2C%203083%20LA%20Rotterdam!5e0!3m2!1snl!2snl!4v0000000000000" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+          </div>
+          <div class="contact-card">
+            <h3><span class="lang-nl">Route & parkeren</span><span class="lang-en">Directions & parking</span><span class="lang-uz">Yo'nalishlar va parkovka</span></h3>
+            <ul class="highlight-list">
+              <li><span class="lang-nl">Parkeren in de straat of nabij Q-Park.</span><span class="lang-en">Parking on the street or nearby Q-Park.</span><span class="lang-uz">Ko'chada yoki yaqin atrofdagi Q-Parkda parkovka.</span></li>
+              <li><span class="lang-nl">OV: Tram 21 of metro naar station Hilligersberg.</span><span class="lang-en">Public transit: Tram 21 or metro to Hilligersberg station.</span><span class="lang-uz">Jamoat transporti: 21-tramvay yoki Hilligersberg metro stantsiyasiga.</span></li>
+              <li><span class="lang-nl">Direct navigeren met Google Maps.</span><span class="lang-en">Navigate directly with Google Maps.</span><span class="lang-uz">Google Xaritalar bilan to'g'ridan-to'g'ri yo'naltirish.</span></li>
+            </ul>
+            <p><span class="lang-nl">Adres: Wolphaertsbocht 138A, 3083 LA Rotterdam</span><span class="lang-en">Address: Wolphaertsbocht 138A, 3083 LA Rotterdam</span><span class="lang-uz">Manzil: Wolphaertsbocht 138A, 3083 LA Rotterdam</span></p>
+            <p><span class="lang-nl">Telefon: <a href="tel:+31621586566">0621586566</a></span><span class="lang-en">Phone: <a href="tel:+31621586566">+31 6 21586566</a></span><span class="lang-uz">Telefon: <a href="tel:+31621586566">+31 6 21586566</a></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-inner">
+        <div class="section-title"><span class="lang-nl">Reviews</span><span class="lang-en">Reviews</span><span class="lang-uz">Sharhlar</span></div>
+        <div class="review-grid">
+          <article class="review-card">
+            <div class="stars">★★★★★</div>
+            <p><span class="lang-nl">"Heerlijk eten, vriendelijke service en een gezellige sfeer. Zeer aan te raden!"</span><span class="lang-en">"Delicious food, friendly service and cozy atmosphere. Highly recommend!"</span><span class="lang-uz">"Mazali taomlar, do'stona xizmat va qulay muhit. Juda tavsiya qilamiz!"</span></p>
+          </article>
+          <article class="review-card">
+            <div class="stars">★★★★★</div>
+            <p><span class="lang-nl">"Perfect voor een avondje uit in Rotterdam. De plov is echt geweldig."</span><span class="lang-en">"Perfect for a night out in Rotterdam. The plov is truly amazing."</span><span class="lang-uz">"Rotterdamda ajoyib kecha uchun ideal. Plov haqiqatan ham ajoyib."</span></p>
+          </article>
+          <article class="review-card">
+            <div class="stars">★★★★★</div>
+            <p><span class="lang-nl">"Snel reserveren via WhatsApp was super makkelijk. Top locatie en service."</span><span class="lang-en">"Quick booking via WhatsApp was super easy. Great location and service."</span><span class="lang-uz">"WhatsApp orqali tez bron qilish juda oson bo'ldi. Ajoyib joy va xizmat."</span></p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="page-footer">
+    <p><span class="lang-nl">Uzbek Restaurant Rotterdam • Wolphaertsbocht 138A • 0621586566</span><span class="lang-en">Uzbek Restaurant Rotterdam • Wolphaertsbocht 138A • +31 6 21586566</span><span class="lang-uz">Uzbek Restaurant Rotterdam • Wolphaertsbocht 138A • +31 6 21586566</span></p>
+    <p class="legal-notice"><span class="lang-nl">Website met focus op mobiel, snelle laadtijd en lokale vindbaarheid.</span><span class="lang-en">Website focused on mobile, fast loading and local discoverability.</span><span class="lang-uz">Sayt mobilga, tez yuklanishga va mahalliy topishga yo'naltirilgan.</span></p>
+  </footer>
+
+  <div class="sticky-whatsapp">
+    <a href="https://wa.me/31261586566?text=Hallo%2C%20ik%20wil%20graag%20reserveren%20voor%20vanavond." target="_blank" rel="noreferrer">
+      <span class="whatsapp-circle" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20.52 3.48C18.07 1.03 14.83 0 11.5 0 5.38 0 .39 4.99 .01 11.1c-.02.74.06 1.47.24 2.17L0 24l10.9-2.84c.69.19 1.4.28 2.12.28 6.12 0 11.11-4.99 11.11-11.11 0-3.34-1.03-6.57-2.84-8.83zm-1.77 15.65c-.13.36-.72.7-1.01.75-.28.05-.63.07-1.32-.13-2.32-.78-4.39-2.39-6.07-4.57-.53-.68-1.37-1.78-1.48-2.03-.12-.27-.3-.4-.63-.4-.33 0-.72.01-1.12.01-.38 0-.7-.14-.96-.4-.26-.27-.4-.62-.34-.99.11-.65.64-1.22 1.02-1.67.15-.19.34-.37.57-.37.22 0 .34.01.52.02.17.02.39.05.59.4.2.36.69 1.21.76 1.3.08.1.12.22.06.36-.06.13-.28.46-.38.6-.12.17-.25.19-.45.14-.18-.05-.39-.13-.57-.19-.16-.05-.33-.11-.5-.16-.17-.05-.34-.02-.5.14-.18.18-.54.52-.55 1.23-.01.69.45 1.35.81 1.82.48.62 1.42 1.39 2.51 1.94.64.33 1.22.51 1.7.65.71.2 1.16.17 1.59.1.5-.08.99-.4 1.13-.79.13-.39.13-.72.09-.79-.04-.09-.15-.11-.32-.19z" />
+        </svg>
+      </span>
+      <span class="whatsapp-label"><span class="lang-nl">Reserveer via WhatsApp</span><span class="lang-en">Reserve via WhatsApp</span><span class="lang-uz">WhatsApp orqali bron</span></span>
+    </a>
+  </div>
+
+  <script>
+    document.querySelectorAll('.lang-switch button').forEach(button => {
+      button.addEventListener('click', () => {
+        document.body.dataset.lang = button.dataset.lang;
+        document.querySelectorAll('.lang-switch button').forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
+'@
